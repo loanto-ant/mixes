@@ -1,0 +1,130 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: var(--weiß);
+    font-family: 'Oswald', sans-serif;
+}
+:root{
+    --rot: #DB1F48;
+    --dunkelblau: #004369;
+    --türkis: #01949A;
+    --weiß: #E5DDC8;
+    --font-size: 30px;
+}
+body{
+    background-color: var(--dunkelblau);
+    display: flex;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+    font-size: 45px;
+    text-transform: uppercase;
+}
+header{
+    position: absolute;
+    top: 50px;
+}
+.animation-wrapper{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: wrapper-weg .5s 3.5s forwards;
+    position: fixed;
+}
+.animation-wrapper img{
+    width: 85vw;
+    height: auto;
+    position: absolute;
+}
+#vinyl{
+    opacity: 0;
+    animation: vinyl 2s 1.5s forwards;
+}
+#ring-klein{
+    transform: scale(0);
+    animation: ring-klein 1s cubic-bezier(0.3, -0.21, 0.45, 1.43) .5s forwards;
+}
+
+#ring-groß{
+    transform: scale(0);
+    animation: ring-groß 1s .5s forwards;
+}
+@keyframes ring-groß{
+    0% {transform: scale(0.0);}
+    100% {transform: scale(1.0);}
+}
+@keyframes ring-klein{
+    0% {transform: scale(0.0);}
+    100% {transform: scale(0.7);}
+}
+@keyframes vinyl{
+    0% {
+        opacity: 0;
+        transform:scale(0.5);
+    }
+    40% {
+        opacity: 1;
+        transform:scale(1);
+    }
+    55% {
+        opacity: 1;
+        transform:scale(1) rotate(20deg);
+    }
+    70% {
+        opacity: 1;
+        transform:scale(1) rotate(0deg);
+    }
+    85% {
+        opacity: 1;
+        transform:scale(1) rotate(20deg);
+    }
+    100% {
+        opacity: 1;
+        transform:scale(1) rotate(0deg);
+    }
+}
+@keyframes wrapper-weg{
+    0% {opacity: 1;}
+    100% {visibility: hidden; opacity: 0; display: none;}
+}
+section{
+    position: absolute;
+    top: 150px;
+    animation: fade-in .5s 3.5s forwards;
+    opacity: 0;
+}
+@keyframes fade-in {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.mix-einzeln{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 13px;
+}
+.mix-einzeln audio{
+    margin: 5px;
+}
+.mix-einzeln::after{
+    background-color: var(--weiß);
+    width: 400px;
+    height: 4px;
+    content: " ";
+    position: relative;
+    top: 13px;
+    opacity: 0.9;
+}
+.mix-einzeln:last-child::after{
+    display: none;
+}
+@media (orientation: landscape) {
+    .animation-wrapper img {
+        width: 85vh;
+    }
+}
