@@ -128,3 +128,18 @@ section{
         width: 85vh;
     }
 }
+button, input[type="text"]{
+    background-color: transparent;
+    border: 2px solid var(--weiß);
+    padding: 2px;
+    margin: 5px;
+    border-radius: 3px;
+}
+input:focus{
+    outline: none;
+}
+.youtube{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
